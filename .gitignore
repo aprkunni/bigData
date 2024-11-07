@@ -8,6 +8,7 @@
 
 # custom user file
 *.idea/
+*.csv/
 
 # User-specific stuff
 .idea/**/workspace.xml
