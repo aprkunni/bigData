@@ -10,20 +10,32 @@ median_age = titanic['age'].median()
 # mean_age = titanic['age'].mean()
 # print(median_age, mean_age)
 titanic_fill_low = titanic.fillna({'age' : median_age})
-print(titanic_fill_low)
-
-# titanic_drop_low = titanic.dropna(subset=['age'])
-# # print(titanic_drop_low.info())
+# print(titanic_fill_low)
 # # 2) 생존율 계산
-# titanic_drop_low['survived'] = titanic_drop_low['survived'].astype(float)
-# print(titanic_drop_low['survived'])
+titanic_fill_low['survived'] = titanic_fill_low['survived'].astype(float)
+print(titanic_fill_low['age'])
 # # 3) 시각화
-# plt.figure(figsize=(10, 5))
-# sns.histplot(data=titanic_drop_low, x='age', weights='survived', bins=8, kde=True)
-# plt.title('Survival Rate by Age (Drop NaN rows)')
-# plt.xlabel('Age')
-# plt.ylabel('Survival Rate (Weighted)')
-# plt.show()
+plt.figure(figsize=(10, 5))
+sns.histplot(data=titanic_fill_low, x='age', weights='survived', bins=8, kde=True)
+plt.title('Survival Rate by Age (Fill with median)')
+plt.xlabel('Age')
+plt.ylabel('Survival Rate (Weighted)')
+plt.show()
+
+
+# 1) 결측치 행들을 제거
+titanic_drop_low = titanic.dropna(subset=['age'])
+# print(titanic_drop_low.info())
+# 2) 생존율 계산
+titanic_drop_low['survived'] = titanic_drop_low['survived'].astype(float)
+print(titanic_drop_low['survived'])
+# 3) 시각화
+plt.figure(figsize=(10, 5))
+sns.histplot(data=titanic_drop_low, x='age', weights='survived', bins=8, kde=True)
+plt.title('Survival Rate by Age (Drop NaN rows)')
+plt.xlabel('Age')
+plt.ylabel('Survival Rate (Weighted)')
+plt.show()
 
 
 # print(titanic['sex'].head())
