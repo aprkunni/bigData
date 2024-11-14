@@ -22,7 +22,6 @@ plt.xlabel('Age')
 plt.ylabel('Survival Rate (Weighted)')
 plt.show()
 
-
 # 1) 결측치 행들을 제거
 titanic_drop_low = titanic.dropna(subset=['age'])
 # print(titanic_drop_low.info())
