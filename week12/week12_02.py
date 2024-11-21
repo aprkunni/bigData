@@ -30,7 +30,7 @@ y_pred = model.predict(X_test) # 검증 셋트를 인수로 예측
 plt.figure(figsize=(3, 2))
 plt.scatter(X_test, y_test, color='blue', label='Real')
 plt.scatter(X_test, y_pred, color='red', label='Predicted')
-plt.title('Linear Regression: Real VS Predicted')
+plt.title('KNeighborsRegressor : Real VS Predicted')
 plt.xlabel('Age')
 plt.ylabel('Survived')
 plt.show()
